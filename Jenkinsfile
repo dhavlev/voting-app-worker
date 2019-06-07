@@ -1,7 +1,12 @@
 
 @Library("jenkins-shared-library") _
 
-def deployConfig = [
+def cdConfig = [
+    chart: [
+        repo: "https://github.com/dhavlev/helm-charts.git",
+        branch: "voting-app"
+    ],
+
     deploy: [
         int: true,
         qa: false,
@@ -10,14 +15,14 @@ def deployConfig = [
     ]
 ]
 
-def dockerConfig = [
+def ciConfig = [
     dockerRegistry: "dhavlev",
     repoName: "voting-app-worker",
     version: "1.0.0"
 ]
 
 
-ci{
-    docker = dockerConfig
-    cd = deployConfig
+facade{
+    ci = ciConfig
+    cd = cdConfig
 }
