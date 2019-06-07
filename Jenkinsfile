@@ -5,13 +5,6 @@ def cdConfig = [
     chart: [
         repo: "https://github.com/dhavlev/helm-charts.git",
         branch: "voting-app"
-    ],
-
-    deploy: [
-        int: true,
-        qa: false,
-        stage: false,
-        prod: false
     ]
 ]
 
